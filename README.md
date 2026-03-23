@@ -8,8 +8,7 @@ MapifyMUJ is a responsive web application that helps students easily navigate ca
 
 ## 🌐 Live Demo
 
-👉 https://your-username.github.io/mapifymuj
-
+👉 https://charu2210.github.io/mapifymuj/
 ---
 
 ## ✨ Features
