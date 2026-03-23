@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>MapifyMUJ · Timetable</title>
+<link rel="stylesheet" href="style.css"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet"/>
+</head>
+<body>
+<div id="app">
+
+  <div class="topbar">
+    <p style="font-size:11px;color:#bbb;margin-bottom:4px">DSE IV B · Sem IV · Section B</p>
+    <h1 class="grad-text" style="font-family:'Syne',sans-serif;font-size:26px;font-weight:800">Timetable</h1>
+    <p style="font-size:11px;color:#bbb;margin-top:3px">Building 2AB · Room 127</p>
+  </div>
+
+  <!-- Day tabs -->
+  <div class="day-tabs" id="day-tabs"></div>
+
+  <!-- Slot list -->
+  <div class="slot-list" id="slot-list"></div>
+
+  <!-- Attendance overview -->
+  <div class="att-overview">
+    <div class="att-overview-header">Attendance Overview</div>
+    <div id="att-rows"></div>
+  </div>
+
+</div>
+
+<!-- BOTTOM NAV -->
+<nav class="bnav">
+  <a class="nb" href="index.html"><span class="ni">🏠</span>Home</a>
+  <a class="nb on" href="timetable.html"><span class="ni">📅</span>Schedule</a>
+  <a class="nb" href="map.html"><span class="ni">🗺️</span>Map</a>
+</nav>
+
+<script src="script.js"></script>
+<script>
+  const CUR_DAY = "THU", CUR_SLOT = 2;
+  let selDay = CUR_DAY;
+
+  const DAYS  = ["MON","TUE","WED","THU","FRI"];
+  const DATES = {MON:17,TUE:18,WED:19,THU:20,FRI:21};
+
+  function renderDayTabs() {
+    document.getElementById("day-tabs").innerHTML = DAYS.map(d => `
+      <button class="dtab ${selDay===d?"on":""}" onclick="selDay='${d}';renderSlots();renderDayTabs()">
+        <span class="dn">${d}</span>
+        <span class="dd">${DATES[d]}</span>
+      </button>`).join("");
+  }
+
+  function renderSlots() {
+    document.getElementById("slot-list").innerHTML = SLOTS.map((sl, i) => {
+      const cls = TIMETABLE[selDay]?.[i];
+      const isNow = selDay === CUR_DAY && i === CUR_SLOT;
+      const att = cls ? ATTENDANCE[cls.code] : null;
+      const pct = att ? Math.round(att.a / att.t * 100) : null;
+
+      if (!cls) return `
+        <div class="slot free">
+          <div class="slot-time">
+            <span class="slot-t">${sl.time.split("–")[0]}</span>
+            <div class="slot-line"></div>
+            <span class="slot-t">${sl.time.split("–")[1]}</span>
+          </div>
+          <div class="slot-body" style="display:flex;align-items:center">
+            <span style="font-size:12px;color:#ccc">Free Slot</span>
+          </div>
+        </div>`;
+
+      return `
+        <div class="slot ${isNow?"now-slot":""}">
+          <div class="slot-time">
+            <span class="slot-t">${sl.time.split("–")[0]}</span>
+            <div class="slot-line"></div>
+            <span class="slot-t">${sl.time.split("–")[1]}</span>
+          </div>
+          <div class="slot-body">
+            <div class="slot-sub">${cls.name}</div>
+            <div class="slot-fac">${cls.faculty}</div>
+            <div class="slot-pills">
+              <span class="pill ${cls.isLab?"pill-lab":"pill-code"}">${cls.code}</span>
+              <span style="font-size:10px;color:#aaa">📍 Rm ${cls.room} · ${cls.building}</span>
+              ${isNow ? `<span class="pill pill-now">NOW</span>` : ""}
+            </div>
+          </div>
+          ${pct !== null ? `
+            <div class="att-bar-wrap">
+              ${makeRing(pct, 44)}
+              <span class="att-ring-lbl">${att.a}/${att.t}</span>
+            </div>` : ""}
+        </div>`;
+    }).join("");
+  }
+
+  function renderAttOverview() {
+    document.getElementById("att-rows").innerHTML = Object.entries(ATTENDANCE).map(([code, att]) => {
+      const pct = Math.round(att.a / att.t * 100);
+      const col = pct >= 75 ? "#4CAF50" : pct >= 60 ? "#FF8C42" : "#FF4C4C";
+      return `
+        <div class="att-row">
+          <span class="att-row-code">${code}</span>
+          <div class="att-row-info">
+            <div class="att-row-pct">
+              <span>${att.a}/${att.t} classes</span>
+              <span style="color:${col};font-weight:800">${pct}%</span>
+            </div>
+            <div class="att-bar">
+              <div class="att-fill" style="width:${pct}%;background:${col}"></div>
+            </div>
+          </div>
+        </div>`;
+    }).join("");
+  }
+
+  renderDayTabs();
+  renderSlots();
+  renderAttOverview();
+</script>
+</body>
+</html>

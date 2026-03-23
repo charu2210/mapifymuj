@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>MapifyMUJ · Map</title>
+<link rel="stylesheet" href="style.css"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet"/>
+</head>
+<body>
+<div id="app">
+
+  <!-- VIEW: BUILDINGS -->
+  <div id="view-buildings">
+    <div class="topbar">
+      <div class="topbar-inner">
+        <div>
+          <p style="font-size:11px;color:#bbb;margin-bottom:4px">📍 Manipal University Jaipur</p>
+          <h1 class="hero-title grad-text" style="-webkit-text-fill-color:unset;background:none;font-size:24px">Navigate</h1>
+        </div>
+        <div class="avatar">C</div>
+      </div>
+    </div>
+
+    <!-- Search -->
+    <div class="search-wrap">
+      <span class="search-ico">🔍</span>
+      <input id="search-inp" type="text" placeholder="Search room, block, type…" oninput="handleSearch(this.value)"/>
+    </div>
+
+    <!-- Search results -->
+    <div id="search-results" style="display:none">
+      <p class="sec-label">Results</p>
+      <div id="search-list" class="result-list"></div>
+    </div>
+
+    <!-- Building cards -->
+    <div id="bld-section">
+      <p class="sec-label">Select Building</p>
+      <div class="bld-grid" id="bld-grid">
+        <!-- filled by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- VIEW: FLOORS -->
+  <div id="view-floors" style="display:none">
+    <div class="back-row">
+      <button class="back-btn" onclick="showBuildings()">‹</button>
+      <div>
+        <p style="font-size:11px;color:#bbb">Building</p>
+        <h1 class="hero-title" style="font-size:21px" id="floor-bld-title">AB-1</h1>
+      </div>
+    </div>
+    <div id="cur-class-alert" style="display:none" class="alert">
+      <div class="alert-ico">📍</div>
+      <div>
+        <div class="alert-tag">Your class is here now</div>
+        <div class="alert-name" id="alert-name">—</div>
+        <div class="alert-meta" id="alert-meta">—</div>
+      </div>
+    </div>
+    <p class="sec-label">Select Floor</p>
+    <div class="floor-list" id="floor-list">
+      <!-- filled by JS -->
+    </div>
+  </div>
+
+  <!-- VIEW: ROOMS -->
+  <div id="view-rooms" style="display:none">
+    <div class="back-row">
+      <button class="back-btn" onclick="showFloors()">‹</button>
+      <div style="flex:1">
+        <p style="font-size:11px;color:#bbb" id="room-bld-label">AB-1</p>
+        <h1 class="hero-title" style="font-size:21px" id="room-floor-title">1st Floor</h1>
+      </div>
+      <div style="font-size:12px;color:#bbb;font-weight:600" id="room-count">0 rooms</div>
+    </div>
+
+    <!-- Filter chips -->
+    <div class="chips" id="filter-chips">
+      <!-- filled by JS -->
+    </div>
+
+    <!-- Room grid -->
+    <div class="room-grid" id="room-grid">
+      <!-- filled by JS -->
+    </div>
+
+    <!-- Room detail -->
+    <div id="room-detail" style="display:none" class="room-detail">
+      <div class="room-detail-row">
+        <div class="room-detail-ico" id="rd-ico">🚪</div>
+        <div class="room-detail-info">
+          <h4 id="rd-name">Room 101</h4>
+          <p id="rd-meta">Classroom · 1st Floor · AB-1</p>
+          <div class="now-label" id="rd-now" style="display:none">🔴 Class happening here now</div>
+        </div>
+        <button class="btn-go">Go →</button>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /app -->
+
+<!-- BOTTOM NAV -->
+<nav class="bnav">
+  <a class="nb" href="index.html"><span class="ni">🏠</span>Home</a>
+  <a class="nb" href="timetable.html"><span class="ni">📅</span>Schedule</a>
+  <a class="nb on" href="map.html"><span class="ni">🗺️</span>Map</a>
+</nav>
+
+<script src="script.js"></script>
+<script>
+  let selBuilding = null, selFloor = null, selRoom = null, filterType = "All";
+
+  const CUR_DAY = "THU", CUR_SLOT = 2;
+  const curClass = TIMETABLE[CUR_DAY][CUR_SLOT];
+
+  /* ── Init ── */
+  function init() {
+    // Check URL param for building
+    const params = new URLSearchParams(location.search);
+    const b = params.get("b");
+    renderBuildingGrid();
+    if (b && ROOMS[b]) { selBuilding = b; showFloors(); }
+  }
+
+  /* ── Building grid ── */
+  function renderBuildingGrid() {
+    const grid = document.getElementById("bld-grid");
+    grid.innerHTML = Object.entries(BUILDING_META).map(([id, b]) => `
+      <div class="bld-card" onclick="selBuilding='${id}';showFloors()">
+        <div class="bld-icon" style="background:${b.light}">${b.emoji}</div>
+        <div>
+          <div class="bld-name">${b.short}</div>
+          <div class="bld-sub">${Object.keys(ROOMS[id]||{}).length} floors</div>
+        </div>
+      </div>`).join("");
+  }
+
+  /* ── Show floors ── */
+  function showFloors() {
+    document.getElementById("view-buildings").style.display = "none";
+    document.getElementById("view-rooms").style.display = "none";
+    document.getElementById("view-floors").style.display = "block";
+
+    const b = BUILDING_META[selBuilding];
+    document.getElementById("floor-bld-title").innerHTML =
+      `<span class="grad-text">${b.label}</span>`;
+
+    // Current class alert
+    if (curClass && curClass.building === selBuilding) {
+      document.getElementById("cur-class-alert").style.display = "flex";
+      document.getElementById("alert-name").textContent = curClass.name;
+      document.getElementById("alert-meta").textContent =
+        "Room " + curClass.room + " · " + SLOTS[CUR_SLOT].time;
+    } else {
+      document.getElementById("cur-class-alert").style.display = "none";
+    }
+
+    const floorOrder = ["Ground Floor","1st Floor","2nd Floor","3rd Floor"];
+    const floors = Object.keys(ROOMS[selBuilding] || {})
+      .sort((a, z) => floorOrder.indexOf(a) - floorOrder.indexOf(z));
+
+    const icons = {"Ground Floor":"🏠","1st Floor":"1️⃣","2nd Floor":"2️⃣","3rd Floor":"3️⃣"};
+    document.getElementById("floor-list").innerHTML = floors.map(f => {
+      const rooms = ROOMS[selBuilding][f] || [];
+      const cls = rooms.filter(r => r.type==="Classroom"||r.type.includes("Lecture")).length;
+      const labs = rooms.filter(r => r.type.toLowerCase().includes("lab")).length;
+      return `<div class="floor-card" onclick="selFloor='${f}';showRooms()">
+        <div class="floor-ico" style="background:${b.light}">${icons[f]||"🏢"}</div>
+        <div>
+          <div class="floor-name">${f}</div>
+          <div class="floor-meta">
+            <span>🚪 ${cls}</span>
+            ${labs ? `<span>🧪 ${labs}</span>` : ""}
+            <span>📦 ${rooms.length} total</span>
+          </div>
+        </div>
+        <div class="floor-arr">›</div>
+      </div>`;
+    }).join("");
+
+    window.scrollTo({top:0,behavior:"smooth"});
+  }
+
+  /* ── Show rooms ── */
+  function showRooms() {
+    selRoom = null; filterType = "All";
+    document.getElementById("view-floors").style.display = "none";
+    document.getElementById("view-rooms").style.display = "block";
+
+    const b = BUILDING_META[selBuilding];
+    document.getElementById("room-bld-label").textContent = b.label;
+    document.getElementById("room-floor-title").innerHTML =
+      `<span class="grad-text">${selFloor}</span>`;
+
+    renderRooms();
+    window.scrollTo({top:0,behavior:"smooth"});
+  }
+
+  function renderRooms() {
+    const allRooms = ROOMS[selBuilding][selFloor] || [];
+    const types = ["All", ...new Set(allRooms.map(r => r.type))];
+    const filtered = filterType === "All" ? allRooms : allRooms.filter(r => r.type === filterType);
+
+    document.getElementById("room-count").textContent = filtered.length + " rooms";
+
+    // Chips
+    document.getElementById("filter-chips").innerHTML = types.map(t =>
+      `<button class="chip ${filterType===t?"on":""}" onclick="filterType='${t}';renderRooms()">${t}</button>`
+    ).join("");
+
+    // Grid
+    const curNum = curClass?.building === selBuilding ? curClass.room : null;
+    document.getElementById("room-grid").innerHTML = filtered.map(room => {
+      const s = roomStyle(room.type);
+      const isCur = room.num === curNum;
+      const isSel = selRoom === room.num;
+      const cls = "room-card" + (isCur?" now-room":isSel?" sel":"");
+      const bg = !isCur && !isSel ? `background:${s.bg}` : "";
+      const tc = !isCur && !isSel ? `color:${s.color}` : "color:#fff";
+      return `<div class="${cls}" style="${bg}" onclick="pickRoom('${room.num}')">
+        ${isCur ? `<div class="now-badge">NOW</div>` : ""}
+        <div class="room-ico">${s.icon}</div>
+        <div class="rn" style="${tc}">${room.num}</div>
+        <div class="rt" style="${!isCur&&!isSel?"color:#aaa":"color:rgba(255,255,255,.75)"}">${room.type}</div>
+      </div>`;
+    }).join("");
+
+    // Detail
+    if (selRoom) {
+      const room = allRooms.find(r => r.num === selRoom);
+      if (room) {
+        const s = roomStyle(room.type);
+        document.getElementById("room-detail").style.display = "block";
+        document.getElementById("rd-ico").textContent = s.icon;
+        document.getElementById("rd-name").textContent = "Room " + room.num;
+        document.getElementById("rd-meta").textContent =
+          room.type + " · " + selFloor + " · " + BUILDING_META[selBuilding].label;
+        const nowEl = document.getElementById("rd-now");
+        if (room.num === curNum) {
+          nowEl.style.display = "block";
+          nowEl.textContent = "🔴 " + curClass.name + " is here now";
+        } else {
+          nowEl.style.display = "none";
+        }
+      }
+    } else {
+      document.getElementById("room-detail").style.display = "none";
+    }
+  }
+
+  function pickRoom(num) {
+    selRoom = selRoom === num ? null : num;
+    renderRooms();
+  }
+
+  /* ── Show buildings ── */
+  function showBuildings() {
+    document.getElementById("view-floors").style.display = "none";
+    document.getElementById("view-rooms").style.display = "none";
+    document.getElementById("view-buildings").style.display = "block";
+    window.scrollTo({top:0,behavior:"smooth"});
+  }
+
+  /* ── Search ── */
+  function handleSearch(q) {
+    const searchRes = document.getElementById("search-results");
+    const bldSec    = document.getElementById("bld-section");
+    if (q.length < 2) { searchRes.style.display="none"; bldSec.style.display="block"; return; }
+    searchRes.style.display = "block";
+    bldSec.style.display    = "none";
+
+    const all = [];
+    Object.entries(ROOMS).forEach(([bid, floors]) => {
+      Object.entries(floors).forEach(([floor, rooms]) => {
+        rooms.forEach(r => all.push({...r, bid, floor, bLabel: BUILDING_META[bid]?.label || bid}));
+      });
+    });
+
+    const results = all.filter(r =>
+      r.num.toString().toLowerCase().includes(q.toLowerCase()) ||
+      r.type.toLowerCase().includes(q.toLowerCase()) ||
+      r.bLabel.toLowerCase().includes(q.toLowerCase()) ||
+      r.floor.toLowerCase().includes(q.toLowerCase())
+    ).slice(0, 20);
+
+    if (!results.length) {
+      document.getElementById("search-list").innerHTML =
+        `<p style="color:#bbb;font-size:13px;padding:8px 0">No results for "${q}"</p>`;
+      return;
+    }
+
+    document.getElementById("search-list").innerHTML = results.map(r => {
+      const s = roomStyle(r.type);
+      return `<div class="result" onclick="selBuilding='${r.bid}';selFloor='${r.floor}';showRooms()">
+        <div class="result-ico" style="background:${s.bg}">${s.icon}</div>
+        <div class="result-info">
+          <h4>Room ${r.num}</h4>
+          <p>${r.type} · ${r.floor} · ${r.bLabel}</p>
+        </div>
+        <div class="result-arr">›</div>
+      </div>`;
+    }).join("");
+  }
+
+  init();
+</script>
+</body>
+</html>

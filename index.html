@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>MapifyMUJ</title>
+<link rel="stylesheet" href="style.css"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet"/>
+</head>
+<body>
+<div id="app">
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div>
+        <p class="greeting" id="greeting">Good Morning ☀️</p>
+        <h1 class="hero-title">Hey, <span class="grad-text">Charu</span> 👋</h1>
+        <p class="sub-label">DSE IV B · Semester IV · Section B</p>
+      </div>
+      <div class="avatar">C</div>
+    </div>
+  </div>
+
+  <!-- NEXT CLASS CARD -->
+  <p class="sec-label">🔴 Right Now</p>
+  <div class="next-card">
+    <div class="nc-tag" id="nc-code">DSE2201 · Theory</div>
+    <div class="nc-name" id="nc-name">Relational DB Mgmt. Systems</div>
+    <div class="nc-meta">
+      <span id="nc-faculty">👤 Dr. Neeraj Kumar Verma</span>
+      <span id="nc-room">📍 Rm 127 · AB2</span>
+      <span id="nc-time">⏰ 10:40–11:30</span>
+    </div>
+    <div class="nc-bottom">
+      <div class="nc-btns">
+        <button class="btn-w" onclick="location.href='map.html'">🗺 Find Room</button>
+        <button class="btn-ghost" onclick="location.href='timetable.html'">Schedule</button>
+      </div>
+      <div class="att-wrap">
+        <svg id="att-ring" width="52" height="52"></svg>
+        <span class="att-lbl">Attend.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- LATER TODAY -->
+  <p class="sec-label">Later Today</p>
+  <div class="td-list" id="later-list">
+    <!-- filled by JS -->
+  </div>
+
+  <!-- NAVIGATE TO BLOCK -->
+  <p class="sec-label">Navigate to Block</p>
+  <div class="bld-grid">
+    <div class="bld-card" onclick="location.href='map.html?b=AB1'">
+      <div class="bld-icon" style="background:#EEE8FF">🏢</div>
+      <div>
+        <div class="bld-name">AB-1</div>
+        <div class="bld-sub">3 floors</div>
+      </div>
+    </div>
+    <div class="bld-card" onclick="location.href='map.html?b=AB2'">
+      <div class="bld-icon" style="background:#FFF0E6">🏢</div>
+      <div>
+        <div class="bld-name">AB-2</div>
+        <div class="bld-sub">3 floors</div>
+      </div>
+    </div>
+    <div class="bld-card" onclick="location.href='map.html?b=AB3'">
+      <div class="bld-icon" style="background:#E0F7F6">🏢</div>
+      <div>
+        <div class="bld-name">AB-3</div>
+        <div class="bld-sub">3 floors</div>
+      </div>
+    </div>
+    <div class="bld-card" onclick="location.href='map.html?b=LHC'">
+      <div class="bld-icon" style="background:#EDE8FF">🎓</div>
+      <div>
+        <div class="bld-name">LHC</div>
+        <div class="bld-sub">4 floors</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /app -->
+
+<!-- BOTTOM NAV -->
+<nav class="bnav">
+  <a class="nb on" href="index.html"><span class="ni">🏠</span>Home</a>
+  <a class="nb" href="timetable.html"><span class="ni">📅</span>Schedule</a>
+  <a class="nb" href="map.html"><span class="ni">🗺️</span>Map</a>
+</nav>
+
+<script src="script.js"></script>
+<script>
+  // Greeting
+  const h = new Date().getHours();
+  document.getElementById("greeting").textContent =
+    h < 12 ? "Good Morning ☀️" : h < 17 ? "Good Afternoon 🌤" : "Good Evening 🌙";
+
+  // Current slot (demo: THU slot 2)
+  const CUR_DAY = "THU", CUR_SLOT = 2;
+  const curClass = TIMETABLE[CUR_DAY][CUR_SLOT];
+
+  if (curClass) {
+    document.getElementById("nc-code").textContent  = curClass.code + (curClass.isLab ? " · Lab" : " · Theory");
+    document.getElementById("nc-name").textContent  = curClass.name;
+    document.getElementById("nc-faculty").textContent = "👤 " + curClass.faculty;
+    document.getElementById("nc-room").textContent  = "📍 Rm " + curClass.room + " · " + curClass.building;
+    document.getElementById("nc-time").textContent  = "⏰ " + SLOTS[CUR_SLOT].time;
+
+    const att = ATTENDANCE[curClass.code];
+    if (att) {
+      const pct = Math.round(att.a / att.t * 100);
+      document.getElementById("att-ring").innerHTML = makeRing(pct, 52);
+    }
+  }
+
+  // Later today
+  const laterHTML = TIMETABLE[CUR_DAY]
+    .map((cls, i) => {
+      if (!cls || i <= CUR_SLOT) return "";
+      const att = ATTENDANCE[cls.code];
+      const pct = att ? Math.round(att.a / att.t * 100) : null;
+      return `<div class="td-item">
+        <div class="td-time">${SLOTS[i].time.split("–")[0]}</div>
+        <div class="td-dot"></div>
+        <div class="td-info">
+          <h4>${cls.name}</h4>
+          <p>📍 Rm ${cls.room} · ${cls.building}</p>
+        </div>
+        ${pct !== null ? `<div>${makeRing(pct, 38)}</div>` : ""}
+      </div>`;
+    }).join("");
+  document.getElementById("later-list").innerHTML = laterHTML || "<p style='color:#bbb;font-size:13px;padding:4px 0'>No more classes today 🎉</p>";
+</script>
+</body>
+</html>
