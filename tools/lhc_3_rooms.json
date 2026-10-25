@@ -1,0 +1,290 @@
+[
+ {
+  "k": "LHC-308",
+  "id": "308",
+  "name": "A-F",
+  "t": "r",
+  "b": "LHC",
+  "f": "3"
+ },
+ {
+  "k": "LHC-307",
+  "id": "307",
+  "name": "A-H",
+  "t": "r",
+  "b": "LHC",
+  "f": "3"
+ },
+ {
+  "k": "LHC-306",
+  "id": "306",
+  "name": "A-G",
+  "t": "r",
+  "b": "LHC",
+  "f": "3"
+ },
+ {
+  "k": "LHC-305",
+  "id": "305",
+  "name": "A-D",
+  "t": "r",
+  "b": "LHC",
+  "f": "3"
+ },
+ {
+  "k": "LHC-D8",
+  "id": "D8",
+  "name": "",
+  "t": "r",
+  "b": "LHC",
+  "f": "3"
+ },
+ {
+  "k": "LHC-304",
+  "id": "304",
+  "name": "A-F",
+  "t": "r",
+  "b": "LHC",
+  "f": "3"
+ },
+ {
+  "k": "LHC-303",
+  "id": "303",
+  "name": "A-F",
+  "t": "r",
+  "b": "LHC",
+  "f": "3"
+ },
+ {
+  "k": "LHC-302",
+  "id": "302",
+  "name": "A-H",
+  "t": "r",
+  "b": "LHC",
+  "f": "3"
+ },
+ {
+  "k": "LHC-301",
+  "id": "301",
+  "name": "A-F",
+  "t": "r",
+  "b": "LHC",
+  "f": "3"
+ },
+ {
+  "k": "LHC-hod-w",
+  "id": "hod-w",
+  "name": "HOD Cabin",
+  "t": "a",
+  "b": "LHC",
+  "f": "3"
+ },
+ {
+  "k": "LHC-325",
+  "id": "325",
+  "name": "A-F",
+  "t": "r",
+  "b": "LHC",
+  "f": "3"
+ },
+ {
+  "k": "LHC-324",
+  "id": "324",
+  "name": "A-H",
+  "t": "r",
+  "b": "LHC",
+  "f": "3"
+ },
+ {
+  "k": "LHC-322",
+  "id": "322",
+  "name": "A-G",
+  "t": "r",
+  "b": "LHC",
+  "f": "3"
+ },
+ {
+  "k": "LHC-D10",
+  "id": "D10",
+  "name": "A-D",
+  "t": "r",
+  "b": "LHC",
+  "f": "3"
+ },
+ {
+  "k": "LHC-321",
+  "id": "321",
+  "name": "A-D",
+  "t": "r",
+  "b": "LHC",
+  "f": "3"
+ },
+ {
+  "k": "LHC-320",
+  "id": "320",
+  "name": "A-F",
+  "t": "r",
+  "b": "LHC",
+  "f": "3"
+ },
+ {
+  "k": "LHC-319",
+  "id": "319",
+  "name": "A-H",
+  "t": "r",
+  "b": "LHC",
+  "f": "3"
+ },
+ {
+  "k": "LHC-318",
+  "id": "318",
+  "name": "A-G",
+  "t": "r",
+  "b": "LHC",
+  "f": "3"
+ },
+ {
+  "k": "LHC-317",
+  "id": "317",
+  "name": "A-F",
+  "t": "r",
+  "b": "LHC",
+  "f": "3"
+ },
+ {
+  "k": "LHC-309",
+  "id": "309",
+  "name": "",
+  "t": "r",
+  "b": "LHC",
+  "f": "3"
+ },
+ {
+  "k": "LHC-310",
+  "id": "310",
+  "name": "",
+  "t": "r",
+  "b": "LHC",
+  "f": "3"
+ },
+ {
+  "k": "LHC-311",
+  "id": "311",
+  "name": "",
+  "t": "r",
+  "b": "LHC",
+  "f": "3"
+ },
+ {
+  "k": "LHC-312",
+  "id": "312",
+  "name": "",
+  "t": "r",
+  "b": "LHC",
+  "f": "3"
+ },
+ {
+  "k": "LHC-313",
+  "id": "313",
+  "name": "",
+  "t": "r",
+  "b": "LHC",
+  "f": "3"
+ },
+ {
+  "k": "LHC-314",
+  "id": "314",
+  "name": "",
+  "t": "r",
+  "b": "LHC",
+  "f": "3"
+ },
+ {
+  "k": "LHC-315",
+  "id": "315",
+  "name": "",
+  "t": "r",
+  "b": "LHC",
+  "f": "3"
+ },
+ {
+  "k": "LHC-316",
+  "id": "316",
+  "name": "",
+  "t": "r",
+  "b": "LHC",
+  "f": "3"
+ },
+ {
+  "k": "LHC-hod-s1",
+  "id": "hod-s1",
+  "name": "HOD Cabin",
+  "t": "a",
+  "b": "LHC",
+  "f": "3"
+ },
+ {
+  "k": "LHC-hod-s2",
+  "id": "hod-s2",
+  "name": "HOD Cabin",
+  "t": "a",
+  "b": "LHC",
+  "f": "3"
+ },
+ {
+  "k": "LHC-fire",
+  "id": "fire",
+  "name": "Fire Exit",
+  "t": "e",
+  "b": "LHC",
+  "f": "3"
+ },
+ {
+  "k": "LHC-lounge",
+  "id": "lounge",
+  "name": "Faculty Lounge",
+  "t": "a",
+  "b": "LHC",
+  "f": "3"
+ },
+ {
+  "k": "LHC-dir1",
+  "id": "dir1",
+  "name": "Director Cabin 1",
+  "t": "r",
+  "b": "LHC",
+  "f": "3"
+ },
+ {
+  "k": "LHC-dir2",
+  "id": "dir2",
+  "name": "Director Cabin 2",
+  "t": "r",
+  "b": "LHC",
+  "f": "3"
+ },
+ {
+  "k": "LHC-meeting",
+  "id": "meeting",
+  "name": "Meeting Room",
+  "t": "a",
+  "b": "LHC",
+  "f": "3"
+ },
+ {
+  "k": "LHC-dean2",
+  "id": "dean2",
+  "name": "Dean's Cabin 2",
+  "t": "r",
+  "b": "LHC",
+  "f": "3"
+ },
+ {
+  "k": "LHC-dean1",
+  "id": "dean1",
+  "name": "Dean's Cabin 1",
+  "t": "r",
+  "b": "LHC",
+  "f": "3"
+ }
+]

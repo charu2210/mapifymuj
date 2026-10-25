@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/><meta name="theme-color" content="#0F766E"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/app.css"/><link rel="stylesheet" href="css/web.css"/><title>MapifyMUJ · Dashboard</title></head>
+<body>
+<main id="app" class="wide dash-page">
+  <header class="dash-head">
+    <div>
+      <p class="greeting" id="greeting"></p>
+      <h1 class="hero-title">Hey, <span class="grad-text" id="who">there</span> 👋</h1>
+      <p class="sub-label" id="sect"></p>
+    </div>
+    <div class="dash-tools">
+      <div class="finder" id="finder" role="search">
+        <label class="sr" for="fq">Find a room</label>
+        <input id="fq" type="search" autocomplete="off" placeholder="Find a room (301, AB2-127)…" role="combobox" aria-expanded="false" aria-controls="fres"/>
+        <div id="fres" class="finder-res" role="listbox" hidden></div>
+      </div>
+      <a class="avatar" id="avatar" href="login.html" aria-label="Account">?</a>
+    </div>
+  </header>
+
+  <section class="stats" id="stats" aria-label="Summary"></section>
+
+  <div class="dash-grid">
+    <div class="col-main">
+      <section class="hero" id="next" aria-live="polite"><div class="nc-name">Loading…</div></section>
+      <section class="panel" aria-labelledby="t-h"><div class="panel-h"><h2 id="t-h">Today’s schedule</h2><a class="more" href="timetable.html">Full timetable →</a></div><div id="today" class="tl"></div></section>
+      <section class="panel" aria-labelledby="w-h"><div class="panel-h"><h2 id="w-h">Week at a glance</h2><span class="sub" id="wk-sub"></span></div><div id="week" class="week"></div></section>
+    </div>
+    <aside class="col-side">
+      <section class="panel" aria-labelledby="a-h"><div class="panel-h"><h2 id="a-h">Attendance by course</h2><a class="more" href="timetable.html#attendance">Details →</a></div><div id="att"></div>
+        <div class="legend"><span><i style="background:#2E9E4F"></i>&gt; 75%</span><span><i style="background:#E8760A"></i>60–75%</span><span><i style="background:#D92D2D"></i>&lt; 60%</span></div></section>
+      <section class="panel" aria-labelledby="b-h"><div class="panel-h"><h2 id="b-h">Navigate to a block</h2></div><div class="bld-grid" id="blds"></div></section>
+    </aside>
+  </div>
+</main>
+<script src="js/core.js"></script><script src="js/api.js"></script><script src="js/shell.js"></script>
+<script src="js/pages/index.js"></script></body></html>

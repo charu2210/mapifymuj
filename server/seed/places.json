@@ -1,0 +1,421 @@
+[
+ {
+  "id": "school-of-engineering-technology",
+  "name": "School of Engineering & Technology",
+  "category": "academic",
+  "description": "Main engineering building with computer labs, lecture halls, and faculty offices",
+  "hours": "7:00 AM - 10:00 PM",
+  "phone": "+91-141-999-4000",
+  "website": "manipal.edu/muj",
+  "lat": 26.843,
+  "lng": 75.5644,
+  "services": [
+   "Computer Labs",
+   "Lecture Halls",
+   "Faculty Offices",
+   "Workshops"
+  ]
+ },
+ {
+  "id": "school-of-planning-architecture",
+  "name": "School of Planning & Architecture",
+  "category": "academic",
+  "description": "Architecture and planning department with design studios",
+  "hours": "8:00 AM - 8:00 PM",
+  "phone": "+91-141-999-4001",
+  "website": "manipal.edu/muj",
+  "lat": 26.8435,
+  "lng": 75.564,
+  "services": [
+   "Design Studios",
+   "Model Making Lab",
+   "CAD Lab",
+   "Library"
+  ]
+ },
+ {
+  "id": "school-of-media-communication",
+  "name": "School of Media & Communication",
+  "category": "academic",
+  "description": "Media studies with TV studio, radio station, and editing suites",
+  "hours": "9:00 AM - 6:00 PM",
+  "phone": "+91-141-999-4002",
+  "website": "manipal.edu/muj",
+  "lat": 26.8425,
+  "lng": 75.565,
+  "services": [
+   "TV Studio",
+   "Radio Station",
+   "Editing Suites",
+   "Photography Lab"
+  ]
+ },
+ {
+  "id": "school-of-law",
+  "name": "School of Law",
+  "category": "academic",
+  "description": "Law school with moot court and legal aid clinic",
+  "hours": "9:00 AM - 6:00 PM",
+  "phone": "+91-141-999-4003",
+  "website": "manipal.edu/muj",
+  "lat": 26.844,
+  "lng": 75.5635,
+  "services": [
+   "Moot Court",
+   "Legal Aid Clinic",
+   "Law Library",
+   "Seminar Halls"
+  ]
+ },
+ {
+  "id": "dr-t-m-a-pai-management-centre",
+  "name": "Dr. T.M.A. Pai Management Centre",
+  "category": "academic",
+  "description": "Business school with case study rooms and corporate training facilities",
+  "hours": "8:00 AM - 8:00 PM",
+  "phone": "+91-141-999-4004",
+  "website": "manipal.edu/muj",
+  "lat": 26.842,
+  "lng": 75.5655,
+  "services": [
+   "Case Study Rooms",
+   "Corporate Training",
+   "MBA Lounge",
+   "Placement Cell"
+  ]
+ },
+ {
+  "id": "central-library",
+  "name": "Central Library",
+  "category": "academic",
+  "description": "Main library with digital resources, study areas, and research facilities",
+  "hours": "24/7 during semester",
+  "phone": "+91-141-999-4010",
+  "website": "library.manipal.edu",
+  "lat": 26.8432,
+  "lng": 75.5642,
+  "services": [
+   "Digital Library",
+   "Study Rooms",
+   "Research Databases",
+   "Printing Services"
+  ]
+ },
+ {
+  "id": "administration-block",
+  "name": "Administration Block",
+  "category": "administrative",
+  "description": "Main administrative offices including registrar, admissions, and accounts",
+  "hours": "9:00 AM - 5:00 PM",
+  "phone": "+91-141-999-4020",
+  "website": "manipal.edu/muj",
+  "lat": 26.8435,
+  "lng": 75.5645,
+  "services": [
+   "Registrar Office",
+   "Admissions",
+   "Accounts",
+   "HR Department"
+  ]
+ },
+ {
+  "id": "vice-chancellor-office",
+  "name": "Vice Chancellor Office",
+  "category": "administrative",
+  "description": "Executive offices and meeting rooms",
+  "hours": "9:00 AM - 5:00 PM",
+  "phone": "+91-141-999-4021",
+  "website": "manipal.edu/muj",
+  "lat": 26.8442,
+  "lng": 75.5642,
+  "services": [
+   "VC Office",
+   "Pro-VC Office",
+   "Board Room",
+   "Guest Lounge"
+  ]
+ },
+ {
+  "id": "boys-hostel-block-1",
+  "name": "Boys Hostel Block 1",
+  "category": "residential",
+  "description": "Male student accommodation with mess and common areas",
+  "hours": "24/7",
+  "phone": "+91-141-999-4030",
+  "website": null,
+  "lat": 26.8415,
+  "lng": 75.566,
+  "services": [
+   "Accommodation",
+   "Mess Hall",
+   "Common Room",
+   "Laundry",
+   "Wi-Fi"
+  ]
+ },
+ {
+  "id": "boys-hostel-block-2",
+  "name": "Boys Hostel Block 2",
+  "category": "residential",
+  "description": "Additional male student housing with recreational facilities",
+  "hours": "24/7",
+  "phone": "+91-141-999-4031",
+  "website": null,
+  "lat": 26.841,
+  "lng": 75.5665,
+  "services": [
+   "Accommodation",
+   "Recreation Room",
+   "Study Hall",
+   "Laundry",
+   "Gym"
+  ]
+ },
+ {
+  "id": "girls-hostel-block-1",
+  "name": "Girls Hostel Block 1",
+  "category": "residential",
+  "description": "Female student accommodation with security and amenities",
+  "hours": "24/7",
+  "phone": "+91-141-999-4032",
+  "website": null,
+  "lat": 26.8445,
+  "lng": 75.563,
+  "services": [
+   "Accommodation",
+   "Mess Hall",
+   "Common Room",
+   "Laundry",
+   "Security"
+  ]
+ },
+ {
+  "id": "girls-hostel-block-2",
+  "name": "Girls Hostel Block 2",
+  "category": "residential",
+  "description": "Additional female housing with modern facilities",
+  "hours": "24/7",
+  "phone": "+91-141-999-4033",
+  "website": null,
+  "lat": 26.845,
+  "lng": 75.5625,
+  "services": [
+   "Accommodation",
+   "Study Lounge",
+   "Recreation Area",
+   "Laundry",
+   "Wi-Fi"
+  ]
+ },
+ {
+  "id": "central-cafeteria",
+  "name": "Central Cafeteria",
+  "category": "dining",
+  "description": "Main dining facility with multiple food courts and seating",
+  "hours": "7:00 AM - 11:00 PM",
+  "phone": "+91-141-999-4040",
+  "website": null,
+  "lat": 26.843,
+  "lng": 75.5647,
+  "services": [
+   "Food Court",
+   "Seating Area",
+   "Snacks Counter",
+   "Beverages",
+   "Catering Services"
+  ]
+ },
+ {
+  "id": "student-activity-centre",
+  "name": "Student Activity Centre",
+  "category": "recreation",
+  "description": "Hub for student activities, clubs, and events",
+  "hours": "9:00 AM - 10:00 PM",
+  "phone": "+91-141-999-4041",
+  "website": null,
+  "lat": 26.8425,
+  "lng": 75.5652,
+  "services": [
+   "Event Hall",
+   "Club Rooms",
+   "Music Room",
+   "Dance Studio",
+   "Student Council"
+  ]
+ },
+ {
+  "id": "sports-complex",
+  "name": "Sports Complex",
+  "category": "recreation",
+  "description": "Indoor and outdoor sports facilities including gym and courts",
+  "hours": "6:00 AM - 10:00 PM",
+  "phone": "+91-141-999-4042",
+  "website": null,
+  "lat": 26.8405,
+  "lng": 75.567,
+  "services": [
+   "Gymnasium",
+   "Basketball Court",
+   "Badminton Courts",
+   "Table Tennis",
+   "Fitness Center"
+  ]
+ },
+ {
+  "id": "swimming-pool",
+  "name": "Swimming Pool",
+  "category": "recreation",
+  "description": "Olympic-size swimming pool with changing rooms",
+  "hours": "6:00 AM - 8:00 PM",
+  "phone": "+91-141-999-4043",
+  "website": null,
+  "lat": 26.84,
+  "lng": 75.5675,
+  "services": [
+   "Swimming Pool",
+   "Changing Rooms",
+   "Pool Equipment",
+   "Lifeguard Services"
+  ]
+ },
+ {
+  "id": "health-centre",
+  "name": "Health Centre",
+  "category": "administrative",
+  "description": "Campus medical facility with doctor and pharmacy",
+  "hours": "8:00 AM - 8:00 PM",
+  "phone": "+91-141-999-4050",
+  "website": null,
+  "lat": 26.844,
+  "lng": 75.565,
+  "services": [
+   "Medical Consultation",
+   "Pharmacy",
+   "First Aid",
+   "Health Records",
+   "Emergency Care"
+  ]
+ },
+ {
+  "id": "bank-atm",
+  "name": "Bank & ATM",
+  "category": "administrative",
+  "description": "Banking services and ATM facility",
+  "hours": "10:00 AM - 4:00 PM",
+  "phone": "+91-141-999-4051",
+  "website": null,
+  "lat": 26.8433,
+  "lng": 75.5643,
+  "services": [
+   "Banking Services",
+   "ATM",
+   "Money Transfer",
+   "Account Services"
+  ]
+ },
+ {
+  "id": "main-parking-area",
+  "name": "Main Parking Area",
+  "category": "parking",
+  "description": "Primary vehicle parking with security",
+  "hours": "24/7",
+  "phone": null,
+  "website": null,
+  "lat": 26.842,
+  "lng": 75.5665,
+  "services": [
+   "Car Parking",
+   "Two Wheeler Parking",
+   "Security",
+   "CCTV Surveillance"
+  ]
+ },
+ {
+  "id": "visitor-parking",
+  "name": "Visitor Parking",
+  "category": "parking",
+  "description": "Designated parking for guests and visitors",
+  "hours": "6:00 AM - 10:00 PM",
+  "phone": null,
+  "website": null,
+  "lat": 26.8445,
+  "lng": 75.5655,
+  "services": [
+   "Guest Parking",
+   "Visitor Registration",
+   "Security Check"
+  ]
+ },
+ {
+  "id": "central-quadrangle",
+  "name": "Central Quadrangle",
+  "category": "outdoor",
+  "description": "Main campus green space for gatherings and events",
+  "hours": "24/7",
+  "phone": null,
+  "website": null,
+  "lat": 26.8432,
+  "lng": 75.5645,
+  "services": [
+   "Open Space",
+   "Event Venue",
+   "Seating Areas",
+   "Landscaping",
+   "Wi-Fi Zone"
+  ]
+ },
+ {
+  "id": "amphitheatre",
+  "name": "Amphitheatre",
+  "category": "outdoor",
+  "description": "Outdoor performance and event space",
+  "hours": "24/7",
+  "phone": null,
+  "website": null,
+  "lat": 26.8427,
+  "lng": 75.5649,
+  "services": [
+   "Performance Space",
+   "Seating",
+   "Sound System",
+   "Cultural Events",
+   "Gatherings"
+  ]
+ },
+ {
+  "id": "innovation-incubation-centre",
+  "name": "Innovation & Incubation Centre",
+  "category": "academic",
+  "description": "Startup incubation and innovation hub",
+  "hours": "9:00 AM - 9:00 PM",
+  "phone": "+91-141-999-4060",
+  "website": "manipal.edu/muj/innovation",
+  "lat": 26.8437,
+  "lng": 75.5637,
+  "services": [
+   "Incubation Space",
+   "Mentorship",
+   "Funding Support",
+   "Networking",
+   "Workshops"
+  ]
+ },
+ {
+  "id": "conference-hall",
+  "name": "Conference Hall",
+  "category": "administrative",
+  "description": "Large conference and seminar facility",
+  "hours": "9:00 AM - 6:00 PM",
+  "phone": "+91-141-999-4061",
+  "website": null,
+  "lat": 26.8434,
+  "lng": 75.5641,
+  "services": [
+   "Conference Facilities",
+   "Audio Visual",
+   "Seating for 300",
+   "Catering",
+   "Parking"
+  ]
+ }
+]

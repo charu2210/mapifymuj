@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/><meta name="theme-color" content="#0F766E"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/app.css"/><link rel="stylesheet" href="css/web.css"/><title>MapifyMUJ · Indoor map</title></head>
+<body>
+<main id="app" class="wide">
+  <header class="topbar"><p class="greeting">⌖ &nbsp; MANIPAL UNIVERSITY JAIPUR</p><h1 class="hero-title">Find your way <span class="grad-text">around campus.</span></h1><p class="sub-label">Indoor wayfinding · Search a room, choose a floor, and explore the map.</p></header>
+  <div class="mapgrid">
+    <section id="s" class="card"><label class="lab" for="q">DESTINATION SEARCH</label>
+      <input id="q" type="search" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="res" placeholder="e.g. 127, AB2-213, mess, lab"/>
+      <div id="nf" class="err" hidden>Room not found. Try the number (127) or building + number (AB2-127).</div><div id="res" role="listbox" hidden></div></section>
+    <section id="h" class="card"><div class="lab">BUILDING & FLOOR</div><div class="row" id="blds"></div><div class="row" id="fls" style="margin-top:8px"></div></section>
+    <section id="m" class="card"><div class="tools"><div class="sub" id="crumb" aria-live="polite"></div>
+      <div class="row"><button id="zo" aria-label="Zoom out">−</button><button id="zf" aria-label="Fit to screen" title="Reset zoom">⤢</button><button id="zi" aria-label="Zoom in">+</button></div></div>
+      <div id="stage" tabindex="0" aria-label="Floor plan. Scroll or drag to pan, Tab to move between rooms, Enter to select."></div>
+      <div class="leg"><span><i style="background:#fff"></i>Room</span><span><i style="background:#E7EFFD"></i>Lab</span><span><i style="background:#E3F3E8"></i>Hall</span><span><i style="background:#FFEFD6"></i>Food</span><span><i style="background:#E2E6EC"></i>Stairs, lift, WS</span><span><i style="background:#E9ECF0"></i>Corridor</span><span><i style="background:#D9480F"></i>Selected</span></div>
+      <div class="lab" style="margin:16px 0 8px">ROOM DIRECTORY</div><div class="row" id="rl"></div></section>
+    <section id="i" class="card"></section>
+  </div>
+</main>
+<script src="js/core.js"></script><script src="js/api.js"></script><script src="js/shell.js"></script>
+<script src="js/pages/map.js"></script></body></html>

@@ -1,0 +1,285 @@
+{
+ "section": {
+  "code": "DSE-IV-B",
+  "name": "DSE · Semester IV · Section B"
+ },
+ "slots": [
+  [
+   540,
+   590
+  ],
+  [
+   590,
+   640
+  ],
+  [
+   640,
+   690
+  ],
+  [
+   690,
+   740
+  ],
+  [
+   740,
+   790
+  ]
+ ],
+ "courses": [
+  {
+   "code": "MAS2001",
+   "name": "Statistics & Probability",
+   "faculty": "Dr. Vijaypal Poonia",
+   "is_lab": false
+  },
+  {
+   "code": "DSE2240",
+   "name": "Cloud Computing",
+   "faculty": "Dr. Malvinder Singh Bali",
+   "is_lab": false
+  },
+  {
+   "code": "DSE2231",
+   "name": "Computer Networks Lab",
+   "faculty": "Dr. Santosh Rajak",
+   "is_lab": true
+  },
+  {
+   "code": "DSE2230",
+   "name": "RDBMS Lab",
+   "faculty": "Dr. Shitanshu Jain",
+   "is_lab": true
+  },
+  {
+   "code": "DSE2201",
+   "name": "Relational DB Mgmt. Systems",
+   "faculty": "Dr. Neeraj Kumar Verma",
+   "is_lab": false
+  },
+  {
+   "code": "DSE2202",
+   "name": "Computer Networks",
+   "faculty": "Dr. Santosh Rajak",
+   "is_lab": false
+  },
+  {
+   "code": "DSE2220",
+   "name": "Machine Learning",
+   "faculty": "Mr. Ashish Pandey",
+   "is_lab": false
+  },
+  {
+   "code": "DSE2229",
+   "name": "Machine Learning",
+   "faculty": "Mr. Ashish Pandey",
+   "is_lab": false
+  },
+  {
+   "code": "DSE2270",
+   "name": "PBL-2",
+   "faculty": "Dr. Santosh Rajak",
+   "is_lab": false
+  }
+ ],
+ "entries": [
+  {
+   "day": "MON",
+   "slot": 1,
+   "course": "MAS2001",
+   "building": "AB2",
+   "room": "127"
+  },
+  {
+   "day": "MON",
+   "slot": 2,
+   "course": "DSE2240",
+   "building": "AB2",
+   "room": "127"
+  },
+  {
+   "day": "MON",
+   "slot": 3,
+   "course": "DSE2231",
+   "building": "AB2",
+   "room": "213"
+  },
+  {
+   "day": "MON",
+   "slot": 4,
+   "course": "DSE2231",
+   "building": "AB2",
+   "room": "213"
+  },
+  {
+   "day": "TUE",
+   "slot": 0,
+   "course": "DSE2230",
+   "building": "AB2",
+   "room": "213"
+  },
+  {
+   "day": "TUE",
+   "slot": 1,
+   "course": "DSE2230",
+   "building": "AB2",
+   "room": "213"
+  },
+  {
+   "day": "TUE",
+   "slot": 2,
+   "course": "DSE2201",
+   "building": "AB2",
+   "room": "127"
+  },
+  {
+   "day": "TUE",
+   "slot": 3,
+   "course": "DSE2202",
+   "building": "AB2",
+   "room": "127"
+  },
+  {
+   "day": "TUE",
+   "slot": 4,
+   "course": "MAS2001",
+   "building": "AB2",
+   "room": "127"
+  },
+  {
+   "day": "WED",
+   "slot": 0,
+   "course": "DSE2220",
+   "building": "AB2",
+   "room": "127"
+  },
+  {
+   "day": "WED",
+   "slot": 1,
+   "course": "DSE2201",
+   "building": "AB2",
+   "room": "127"
+  },
+  {
+   "day": "WED",
+   "slot": 2,
+   "course": "MAS2001",
+   "building": "AB2",
+   "room": "127"
+  },
+  {
+   "day": "WED",
+   "slot": 3,
+   "course": "DSE2202",
+   "building": "AB2",
+   "room": "127"
+  },
+  {
+   "day": "WED",
+   "slot": 4,
+   "course": "DSE2202",
+   "building": "AB2",
+   "room": "127"
+  },
+  {
+   "day": "THU",
+   "slot": 0,
+   "course": "DSE2240",
+   "building": "AB2",
+   "room": "127"
+  },
+  {
+   "day": "THU",
+   "slot": 1,
+   "course": "DSE2202",
+   "building": "AB2",
+   "room": "127"
+  },
+  {
+   "day": "THU",
+   "slot": 2,
+   "course": "DSE2201",
+   "building": "AB2",
+   "room": "127"
+  },
+  {
+   "day": "THU",
+   "slot": 3,
+   "course": "DSE2220",
+   "building": "AB2",
+   "room": "127"
+  },
+  {
+   "day": "THU",
+   "slot": 4,
+   "course": "DSE2220",
+   "building": "AB2",
+   "room": "127"
+  },
+  {
+   "day": "FRI",
+   "slot": 1,
+   "course": "DSE2229",
+   "building": "AB2",
+   "room": "127"
+  },
+  {
+   "day": "FRI",
+   "slot": 2,
+   "course": "DSE2270",
+   "building": "AB2",
+   "room": "127"
+  },
+  {
+   "day": "FRI",
+   "slot": 3,
+   "course": "DSE2240",
+   "building": "AB2",
+   "room": "127"
+  },
+  {
+   "day": "FRI",
+   "slot": 4,
+   "course": "DSE2201",
+   "building": "AB2",
+   "room": "127"
+  }
+ ],
+ "demoAttendance": {
+  "DSE2201": {
+   "a": 18,
+   "t": 22
+  },
+  "DSE2202": {
+   "a": 20,
+   "t": 22
+  },
+  "DSE2220": {
+   "a": 15,
+   "t": 20
+  },
+  "DSE2240": {
+   "a": 12,
+   "t": 18
+  },
+  "DSE2230": {
+   "a": 8,
+   "t": 10
+  },
+  "DSE2231": {
+   "a": 9,
+   "t": 10
+  },
+  "DSE2270": {
+   "a": 6,
+   "t": 8
+  },
+  "MAS2001": {
+   "a": 19,
+   "t": 22
+  },
+  "DSE2229": {
+   "a": 14,
+   "t": 18
+  }
+ }
+}

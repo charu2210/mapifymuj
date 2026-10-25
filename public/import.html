@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/><meta name="theme-color" content="#0F766E"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/app.css"/><link rel="stylesheet" href="css/web.css"/><link rel="stylesheet" href="css/import.css"/><title>MapifyMUJ · Import timetable</title></head>
+<body>
+<main id="app" class="wide">
+  <header class="topbar"><p class="greeting">📥 &nbsp; TIMETABLE IMPORT</p><h1 class="hero-title">Bring in <span class="grad-text">your timetable.</span></h1>
+    <p class="sub-label">Upload a screenshot or PDF · check what we read · save it · find every classroom.</p></header>
+  <ol class="steps" id="steps" aria-label="Progress"><li data-s="1">Upload</li><li data-s="2">Check details</li><li data-s="3">Saved</li></ol>
+  <div id="existing"></div>
+
+  <section id="s1" class="card imp-card">
+    <label class="drop" id="drop" for="file">
+      <span class="drop-ic" aria-hidden="true">🗓️</span><b>Choose a timetable screenshot or PDF</b>
+      <span class="sub">or drag it here · PNG, JPG, WebP or PDF</span>
+      <input id="file" type="file" accept="image/png,image/jpeg,image/webp,application/pdf,.pdf" class="sr"/>
+    </label>
+    <div id="prog" class="prog-box" hidden><progress id="pbar" max="100" value="0"></progress><div id="pmsg" class="sub" aria-live="polite"></div></div>
+    <div id="s1err" class="err" role="alert"></div>
+    <ul class="tips">
+      <li>Your file is read <b>on this device</b> — it is never uploaded. Only the details you confirm are saved.</li>
+      <li>Use a clear, full view of the weekly timetable. The first run downloads the reading engine (~10 MB) once.</li>
+      <li>We look for subjects, days, times and room numbers like <code>AB2-127</code>. You’ll check every row next.</li>
+    </ul>
+    <button class="btn" id="manual" type="button">✍️ Enter classes manually instead</button>
+  </section>
+
+  <section id="s2" hidden>
+    <div class="imp-head card"><div><h2 id="s2t">Check your classes</h2><p class="sub" id="s2s"></p></div><button class="btn" id="again" type="button">↩ Start over</button></div>
+    <div class="imp-grid">
+      <aside class="card imp-prev" id="prevWrap"><div class="lab">YOUR FILE</div><div id="prev"></div></aside>
+      <div>
+        <div id="rows"></div>
+        <button class="btn" id="add" type="button">＋ Add a class</button>
+        <div class="card imp-confirm">
+          <label class="chk"><input type="checkbox" id="ok"/> <span>I’ve checked these details against my timetable.</span></label>
+          <div id="sum" class="sub"></div><div id="s2err" class="err" role="alert"></div>
+          <div id="auth"></div>
+          <button class="btn primary" id="save" type="button" disabled>Save timetable</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="s3" class="card imp-card" hidden></section>
+</main>
+<script src="js/core.js"></script><script src="js/api.js"></script><script src="js/shell.js"></script>
+<script src="js/tt-import.js"></script><script src="js/tt-ocr.js"></script><script src="js/pages/import.js"></script></body></html>

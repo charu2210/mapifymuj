@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/><meta name="referrer" content="strict-origin-when-cross-origin"/><meta name="theme-color" content="#FF8C42"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="vendor/leaflet/leaflet.css"/>
+<link rel="stylesheet" href="css/app.css"/><link rel="stylesheet" href="css/web.css"/><title>MapifyMUJ · Campus map</title></head>
+<body>
+<main id="app" class="wide">
+  <header class="topbar"><p class="greeting">📍 Manipal University Jaipur</p><h1 class="hero-title">Campus <span class="grad-text">map</span></h1><p class="sub-label">Outdoor map · tap a building for details, floor plans and directions</p></header>
+  <div class="campus-grid">
+    <section class="card">
+      <div class="row" style="margin-bottom:10px"><input id="q" class="field" type="search" placeholder="Search library, hostel, AB2…" aria-label="Search places" style="flex:1;min-width:160px;min-height:46px;padding:10px 12px;border:1.5px solid var(--line);border-radius:12px"/>
+        <button class="btn" id="loc">🎯 My location</button><button class="btn" id="sat">🛰 Satellite</button></div>
+      <div class="row" id="cats" style="margin-bottom:10px"></div>
+      <div id="cmap" role="application" aria-label="Interactive campus map"></div>
+      <p class="sub" style="margin-top:8px">Pins marked “approximate” have not been surveyed yet — an admin can correct them in the admin console.</p>
+    </section>
+    <aside style="display:grid;gap:14px;align-content:start">
+      <section class="card" id="detail"><div class="lab">Selected place</div><p class="sub">Choose a pin or a place from the list.</p></section>
+      <section class="card"><div class="lab">Places</div><div class="plist" id="plist"></div></section>
+    </aside>
+  </div>
+</main>
+<script src="js/core.js"></script><script src="js/api.js"></script><script src="js/shell.js"></script>
+<script src="vendor/leaflet/leaflet.js"></script>
+<script src="js/pages/campus.js?v=5"></script></body></html>

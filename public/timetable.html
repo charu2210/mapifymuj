@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/><meta name="theme-color" content="#FF8C42"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/app.css"/><link rel="stylesheet" href="css/web.css"/><title>MapifyMUJ · Timetable</title></head>
+<body>
+<main id="app" class="wide">
+  <header class="topbar"><p class="sub-label" id="sect"></p><h1 class="hero-title grad-text">Timetable</h1><p style="margin-top:10px"><a class="btn" href="import.html">📥 Import / edit my timetable</a></p></header>
+  <div class="tt-grid"><div class="tt-main"><div class="day-tabs" id="tabs" role="tablist" aria-label="Day"></div>
+  <div class="slot-list" id="slots"></div></div>
+  <section class="att-overview" id="attendance" aria-labelledby="ah">
+    <div class="att-overview-header"><span id="ah">Attendance overview</span><span id="ov"></span></div>
+    <div id="rows"></div>
+    <div class="legend"><span><i style="background:#2E9E4F"></i>Above 75%</span><span><i style="background:#E8760A"></i>60% – 75%</span><span><i style="background:#D92D2D"></i>Below 60%</span></div>
+  </section></div>
+</main>
+<script src="js/core.js"></script><script src="js/api.js"></script><script src="js/shell.js"></script>
+<script src="js/pages/timetable.js"></script></body></html>
